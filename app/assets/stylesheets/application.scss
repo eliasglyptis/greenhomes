@@ -16,3 +16,7 @@
 
  @import 'bulma';
  @import 'bulma-extensions';
+
+ .navbar-item img {
+   max-height: 2.75rem;
+ }

@@ -1,0 +1,70 @@
+<nav class="navbar is-white has-shadow">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+       
+        <%= image_tag 'homeImprovements.png', width: "70", height: "64" %>
+    </a>
+    <div class="navbar-burger" data-target="navMenuColorlink-example">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="navMenuColorlink-example" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="#">
+        Home
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" href="#">
+          All Tests
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="#">
+            Test
+          </a>
+          <a class="navbar-item" href="#">
+            Test 2
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="field is-grouped">
+          <p class="control">
+            <a class="button is-primary is-light">
+                Login
+            </a>
+          </p>
+          <p class="control">
+            <a class="button is-primary is-light">
+              Register
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  if ($navbarBurgers.length > 0) {
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+      });
+    });
+  }
+
+});
+</script>
