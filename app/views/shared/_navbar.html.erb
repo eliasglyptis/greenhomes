@@ -1,8 +1,8 @@
 <nav class="navbar is-white has-shadow">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
+    <a class="navbar-item" href="#">
        
-        <%= image_tag 'homeImprovements.png', width: "70", height: "64" %>
+        <%= image_tag 'homeImprovements.png', width: "40", height: "37" %>
     </a>
     <div class="navbar-burger" data-target="navMenuColorlink-example">
       <span></span>
@@ -33,18 +33,30 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="field is-grouped">
-          <p class="control">
-            <a class="button is-primary is-light">
-                Login
+        <% if (!user_signed_in?) %>
+          <div class="field is-grouped">
+            <p class="control">
+              <%= link_to 'Login', new_user_session_path, class: "button is-primary is-light" %>
+            </p>
+            <p class="control">
+              <%= link_to 'Login', new_user_registration_path, class: "button is-primary is-light" %>
+            </p>
+          </div>
+        <% else %>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="#">
+              <%= current_user.email %>
             </a>
-          </p>
-          <p class="control">
-            <a class="button is-primary is-light">
-              Register
-            </a>
-          </p>
-        </div>
+            <div class="navbar-dropdown">
+              <%= link_to 'Profile', edit_user_registration_path, class: "navbar-item" %>
+              <a class="navbar-item" href="#">
+                Dashboard
+              </a>
+              <hr class="navbar-divider">
+              <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "navbar-item" %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
