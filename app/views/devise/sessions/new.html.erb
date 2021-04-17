@@ -38,6 +38,9 @@
             <div class="field">
               <%= f.submit "Log In", class: "button is-success is-fullwidth" %>
             </div>
+            <div class="field">
+              <%= link_to "Login With Facebook", user_facebook_omniauth_authorize_path, class: "button is-info is-fullwidth" %>
+            </div>
 
             <div class="has-text-centered">
               <%= link_to 'Forgot Password?', new_user_password_path %>
