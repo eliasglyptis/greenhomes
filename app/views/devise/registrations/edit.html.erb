@@ -25,31 +25,18 @@
               </div>
             </div>
             <div class="field">
-              <label for="" class="label">Password</label>
-              <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %><br />
+              <label for="" class="label">New Password</label>
+              
               <div class="control has-icons-left">
-                <i>(leave blank if you don't want to change it)</i><br />
+                <span class="has-text-danger"><i>(leave blank if you don't want to change it)</i></span><br />
                 <%= f.password_field :password, autocomplete: "new-password", class: 'input' %>
                 <span class="icon is-small is-left">
                   <i class="fa fa-lock"></i>
                 </span>
-                <% if @minimum_password_length %>
-                  <br />
-                  <em><%= @minimum_password_length %> characters minimum</em>
-                <% end %>
+                
               </div>
             </div>
-            <div class="field">
-              <label for="" class="label">Confirm Password</label>
-              <div class="control has-icons-left">
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input' %>
-                <span class="icon is-small is-left">
-                  <i class="fa fa-lock"></i>
-                </span>
-              </div>
-            </div>
+            
             <div class="field">
               <%= f.submit "Update Profile", class: "button is-success is-fullwidth" %>
             </div>
