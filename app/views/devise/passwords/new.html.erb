@@ -1,16 +1,37 @@
-<h2>Forgot your password?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<section class="hero is-white is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-5-desktop is-4-widescreen">
+          <h2 class="title has-text-centered">Forgot your password?</h2>
+          
+          <%= form_for(resource, as: resource_name, class: 'box', url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            
+            <div class="field">
+              <label for="" class="label">Your Password</label>
+              <div class="control has-icons-left">
+                <%= f.password_field :password, autocomplete: "current-password", class: 'input' %>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <%= f.submit "Send me reset password instructions", class: "button is-success is-fullwidth" %>
+            </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <div class="has-text-centered">
+              <%= link_to 'Log In', new_user_session_path %>
+            </div>
+            <div class="has-text-centered">
+              <%= link_to "Register Here", new_user_registration_path, class: 'is-bold' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>
+ 

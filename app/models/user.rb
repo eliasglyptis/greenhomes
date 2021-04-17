@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :fullname, length: { 
+  validates :full_name, length: { 
     maximum: 50,
     minimum: 2,
     message: " must be between 2 to 50 characters."
