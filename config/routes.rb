@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  
   root 'pages#home'
+
+  resources :projects
   
   devise_for :users, path: '', 
               path_names: { 
