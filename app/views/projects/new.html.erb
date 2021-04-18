@@ -1,2 +1,72 @@
-<h1>Projects#new</h1>
-<p>Find me in app/views/projects/new.html.erb</p>
+<section class="hero is-white is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8-tablet is-7-desktop is-6-widescreen">
+          <h2 class="title has-text-centered">Create a Project</h2>
+
+          <%= form_for @project do |f| %>
+          
+          <div class="field">
+            <label class="label">Project Name</label>
+            <div class="control">
+              <%= f.text_field :name, autocomplete: 'name', placeholder: 'Project Name', class: 'input is-info' %>
+            </div>
+          </div>
+
+          <div class="columns is-multiline is-mobile">
+            <div class="column is-two-thirds">
+              <div class="field">
+                <label class="label">Estimated Level of Effort</label>
+                <div class="control">
+                  <%= f.number_field :estimated_effort, autocomplete: 'name', placeholder: 'Between 1 to 10', class: 'input is-info' %>
+                </div>
+              </div>
+            </div>
+            <div class="column is-one-third">
+              <div class="field">
+                <label class="label">Private / Public</label>
+                <div class="control">
+                  <div class="select is-info">
+                    <%= f.select :display, Project.displays.map {|key, value| [key.humanize, key]}, selected: 'Public' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Description</label>
+            <div class="control">
+              <%= f.rich_text_area :description, id: "rich-editor", autocomplete: 'description', placeholder: 'Briefly describe the scope of project', class: 'textarea is-info', rows: 50, cols: 5 %>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <%= f.submit "Create Project", class: "button is-link" %>
+            </div>
+            <div class="control">
+              <%= link_to "Cancel", :back, class: "button is-link is-light" %>
+            </div>
+          </div>
+
+          <% end %>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+

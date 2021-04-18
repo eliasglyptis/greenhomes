@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to edit_project_path(@project), notice: "Project created successfully."
     else
-      redirect_to request.referrer, flash: { error: @service.errors.full_messages }
+      redirect_to request.referrer, flash: { error: @project.errors.full_messages }
     end
   end
 
@@ -37,6 +37,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:estimated_effort, :actual_effort, :type, :name, :status)
+      params.require(:project).permit(:estimated_effort, :actual_effort, :display, :name, :status, :description)
     end
 end

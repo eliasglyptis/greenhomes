@@ -22,3 +22,15 @@
  .navbar-item img {
    max-height: 2.75rem;
  }
+ .w-200 {
+   width: 200px !important;
+ }
+
+ input::-webkit-outer-spin-button,
+ input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+ }
+ input[type=number] {
+   -moz-appearance: textfield;
+ }
