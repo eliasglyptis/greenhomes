@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.build(project_params)
     if @project.save
-      redirect_to edit_project_path(@project), notice: "Project created successfully."
+      redirect_to root_path, notice: "Project created successfully."
     else
       redirect_to request.referrer, flash: { error: @project.errors.full_messages }
     end
@@ -21,6 +21,12 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    if @project.update(project_params)
+      flash[:notice] = "Your project has been updated successfully!"
+      redirect_to root_path
+    else
+      return redirect_to request.referrer, flash: {error: @project.errors.full_messages}
+    end
   end
 
   def show

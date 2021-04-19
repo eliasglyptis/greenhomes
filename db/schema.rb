@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_04_18_205958) do
     t.integer "display", default: 1
     t.integer "estimated_effort"
     t.integer "actual_effort"
-    t.integer "status"
+    t.integer "status", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

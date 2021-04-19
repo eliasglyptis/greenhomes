@@ -5,7 +5,7 @@ class CreateProjects < ActiveRecord::Migration[6.0]
       t.boolean :type, default: false
       t.integer :estimated_effort
       t.integer :actual_effort
-      t.integer :status
+      t.integer :status, default: 0
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

@@ -34,3 +34,54 @@
  input[type=number] {
    -moz-appearance: textfield;
  }
+
+.form-header {
+
+   padding: 12px 20px;
+   border-bottom: 1px solid #e6e6e6;
+   -webkit-transition: all .3s;
+   transition: all .3s;
+
+ }
+
+ .form-outer {
+   -webkit-box-flex: 1;
+   -ms-flex: 1;
+   flex: 1;
+   display: inline-block;
+   width: 100%;
+   border-radius: 6px;
+   border: 1px solid #e5e5e5;
+   -webkit-transition: all .3s;
+   transition: all .3s;
+
+ }
+
+ .form-layout .form-outer .form-header .form-header-inner {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   -webkit-box-pack: justify;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
+ }
+
+ 
+
+ .form-layout.is-split .form-outer .form-body {
+   padding: 0;
+ }
+ .effort-box {
+   box-shadow: none;
+   background: #e6e6e6;
+ }
+ .effort-box p {
+   font-weight: bold;
+   text-align: center;
+ }
+ .effort-num {
+   font-size: 26px;
+ }

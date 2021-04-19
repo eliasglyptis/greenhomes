@@ -1,2 +1,96 @@
-<h1>Projects#edit</h1>
-<p>Find me in app/views/projects/edit.html.erb</p>
+<section class="hero is-white is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <%= form_for @project do |f| %>
+            <div class="field">
+              <label class="label">Update Project Status</label>
+              <div class="control">
+                <div class="select is-info">
+                  <%= f.select :status, Project.statuses.map {|key, value| [key.humanize, key]}, selected: @project.status %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-9-tablet is-9-desktop is-9-widescreen">
+          <h2 class="title has-text-centered">Edit Project</h2>
+
+          <%= form_for @project do |f| %>
+          
+          <div class="field">
+            <label class="label">Project Name</label>
+            <div class="control">
+              <%= f.text_field :name, autocomplete: 'name', placeholder: @project.name, class: 'input is-info' %>
+            </div>
+          </div>
+
+          <div class="columns is-multiline is-mobile">
+            <div class="column is-one-third">
+              <div class="field">
+                <label class="label">Estimated Effort</label>
+                <div class="control">
+                  <%= f.number_field :estimated_effort, autocomplete: 'name', placeholder: @project.estimated_effort, class: 'input is-info' %>
+                </div>
+              </div>
+            </div>
+            <div class="column is-one-third">
+              <div class="field">
+                <label class="label">Actual Effort</label>
+                <div class="control">
+                  <%= f.number_field :actual_effort, autocomplete: 'name', placeholder: 'actual effort', class: 'input is-info' %>
+                </div>
+              </div>
+            </div>
+            
+            <div class="column is-one-third">
+              <div class="field">
+                <label class="label">Private / Public</label>
+                <div class="control">
+                  <div class="select is-info">
+                    <%= f.select :display, Project.displays.map {|key, value| [key.humanize, key]}, selected: @project.display %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Description</label>
+            <div class="control">
+              <%= f.rich_text_area :description, id: "rich-editor", autocomplete: 'description', placeholder: @project.description, class: 'textarea is-info', rows: 50, cols: 5 %>
+            </div>
+          </div>
+
+
+          <div class="field is-grouped">
+            <div class="control">
+              <%= f.submit "Update Project", class: "button is-link" %>
+            </div>
+            <div class="control">
+              <%= link_to "Cancel", root_path, class: "button is-link is-light" %>
+            </div>
+          </div>
+
+          <% end %>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
