@@ -10,33 +10,55 @@
                   <div class="form-header-inner">
                     <div class="left">
                       <%= link_to edit_project_path(project) do %>
-                        <h3><%= project.name.capitalize %></h3>
+                        <h2 class="title is-4"><%= project.name.titleize %></h2>
                       <% end %>
                        
                     </div>
                     <div class="right">
-                      <%= link_to 'STARTED', edit_project_path(project), class: "button is-info is-outlined is-small" %>
+                      <%= link_to project.status.humanize, 
+                                          edit_project_path(project), 
+                                          class: "button is-outlined is-small #{project_status(project.status)}" %>
                     </div>
                   </div>
                 </div>
                 <div>
                   <div class="columns mt-5 mb-4">
-                    <div class="column is-7">
-                      <div class="box is-shadowless">
-                        <article><%= project.description %></article>
+                    <div class="column is-7 pt-0">
+                      <div class="card is-shadowless">
+                        <header class="card-header is-shadowless pl-4">
+                          <span class="icon">
+                            <i class="fas fa-train"></i>
+                          </span>
+                          <p class="card-header-title p-0">Created on: <%= project.created_at.strftime('%d, %b %Y')%></p>
+                        </header>
+                        <div class="card-content pt-3">
+                          <div class="content">
+                            <%= project.description %>
+                          </div>
+                        </div>
+                        
                       </div>
                     </div>
                     <div class="columns is-mobile">
                       <div class="column">
                         <div class="box effort-box">
                           <p>Estimated level of effort</p>
-                          <p class="effort-num"><%= project.estimated_effort %></p>
+                          <p class="effort-num">
+                            <%= project.estimated_effort %>
+                          </p>
                         </div>
                       </div>
                       <div class="column">
                         <div class="box effort-box">
                           <p>Actual level<br /> of effort</p>
-                          <p class="effort-num"><%= project.estimated_effort %></p>
+                          
+                            <p class="effort-num has-text-success">
+                              <% unless project.status != 'Completed' %>
+                                <%= project.estimated_effort %>
+                              <% end %>
+                            </p>
+                         
+                          
                         </div>
                       </div>
                     </div>

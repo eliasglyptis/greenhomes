@@ -22,8 +22,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      flash[:notice] = "Your project has been updated successfully!"
-      redirect_to root_path
+      redirect_to edit_project_path(@project), notice: "Your project has been updated successfully!"
     else
       return redirect_to request.referrer, flash: {error: @project.errors.full_messages}
     end
@@ -31,6 +30,20 @@ class ProjectsController < ApplicationController
 
   def show
   end
+
+  def status_complete
+		@project = Project.find(params[:id])
+
+		if @project.status != 3
+			if @project.status == 3
+				flash[:notice] = "Saved..."
+			else
+				flash[:alert] = "Something went wrong..."
+			end
+
+			redirect_to request.referrer
+		end
+	end
 
   private
 

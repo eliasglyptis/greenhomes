@@ -36,14 +36,11 @@
  }
 
 .form-header {
-
    padding: 12px 20px;
    border-bottom: 1px solid #e6e6e6;
    -webkit-transition: all .3s;
    transition: all .3s;
-
  }
-
  .form-outer {
    -webkit-box-flex: 1;
    -ms-flex: 1;
@@ -69,14 +66,13 @@
    justify-content: space-between;
  }
 
- 
-
  .form-layout.is-split .form-outer .form-body {
    padding: 0;
  }
  .effort-box {
    box-shadow: none;
    background: #e6e6e6;
+   min-height: 148px;
  }
  .effort-box p {
    font-weight: bold;
@@ -85,3 +81,9 @@
  .effort-num {
    font-size: 26px;
  }
+ .columns.is-vcentered {
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+ }
+ 
