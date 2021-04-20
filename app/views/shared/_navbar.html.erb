@@ -13,19 +13,6 @@
   <div id="navMenuColorlink-example" class="navbar-menu">
     <div class="navbar-start">
       <%= link_to 'Home', root_path, class: 'navbar-item' %>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="#">
-          All Tests
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="#">
-            Test
-          </a>
-          <a class="navbar-item" href="#">
-            Test 2
-          </a>
-        </div>
-      </div>
       <div class="navbar-item">
         <div class="buttons">
           <%= link_to 'New Project', new_project_path, class: "button is-success is-small capitalize" %>
@@ -46,9 +33,15 @@
           </div>
         <% else %>
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link" href="#">
-              <%= current_user.email %>
+            
+            <a href="" class="navbar-item">
+              <figure class="image is-32x32 mr-2">
+                <%= image_tag avatar_url(current_user), class: 'is-rounded'%>
+              </figure>
+              <%= current_user.full_name %>
+              
             </a>
+
             <div class="navbar-dropdown">
               <%= link_to 'Profile', edit_user_registration_path, class: "navbar-item" %>
               <a class="navbar-item" href="#">
