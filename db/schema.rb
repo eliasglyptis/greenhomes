@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2021_04_18_205958) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.integer "display", default: 1
-    t.integer "estimated_effort"
-    t.integer "actual_effort"
+    t.integer "estimated_effort", default: 1
+    t.integer "actual_effort", default: 0
     t.integer "status", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

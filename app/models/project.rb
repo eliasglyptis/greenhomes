@@ -14,9 +14,17 @@ class Project < ApplicationRecord
   
   validates :estimated_effort, numericality: { 
     only_integer: true, 
-    greater_than_or_equal_to: 1, 
-    message: " must be at least 1"
+    greater_than_or_equal_to: 1,
+    less_than_or_equal_to: 10,
+    message: " must be at least 1 and not greater than 10"
   }
+  validates :actual_effort, numericality: { 
+    only_integer: true, 
+    greater_than_or_equal_to: 0,
+    less_than_or_equal_to: 10,
+    message: " must be at least 1 and not greater than 10"
+  }, on: :update
+
   validates :description, presence: :true, length: { 
     maximum: 2000,
     minimum: 50, 

@@ -22,7 +22,11 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
+      if !(@project.actual_effort > 0) && project_params[:status] == "Completed"
+        return redirect_to request.referrer, flash: {error: "In order to mark your project compled, you need to add the Actual Effort from 1 to 10"}
+      else
       redirect_to edit_project_path(@project), notice: "Your project has been updated successfully!"
+      end
     else
       return redirect_to request.referrer, flash: {error: @project.errors.full_messages}
     end
