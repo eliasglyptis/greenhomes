@@ -1,9 +1,8 @@
 <nav class="navbar is-white has-shadow">
   <div class="navbar-brand">
-    <a class="navbar-item" href="#">
-       
-        <%= image_tag 'homeImprovements.png', width: "40", height: "37" %>
-    </a>
+    <%= link_to root_path, class: 'navbar-item' do %>
+      <%= image_tag 'homeImprovements.png', width: "40", height: "37" %>
+    <% end %>
     <div class="navbar-burger" data-target="navMenuColorlink-example">
       <span></span>
       <span></span>
@@ -13,9 +12,7 @@
 
   <div id="navMenuColorlink-example" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="#">
-        Home
-      </a>
+      <%= link_to 'Home', root_path, class: 'navbar-item' %>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link" href="#">
           All Tests

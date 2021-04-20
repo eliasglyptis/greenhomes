@@ -1,24 +1,17 @@
 <section class="hero is-white is-fullheight">
   <div class="hero-body">
-    <%= form_for @project do |f| %>
-      <div class="container">
-        <div class="columns">
-          <div class="column">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-9-tablet is-9-desktop is-9-widescreen">
+          <h2 class="title has-text-centered">Edit Project</h2>
+          <%= form_for @project do |f| %>
             <div class="field">
               <label class="label">Update Project</label>
-              <div class="control">
-                <div class="select is-info">
-                  <%= f.select :status, Project.statuses.map {|key, value| [key.humanize, key]}, selected: @project.status %>
-                </div>
+              <div class="select is-info">
+                <%= f.select :status, Project.statuses.map {|key, value| [key.humanize, key]}, selected: @project.status %>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="columns is-centered">
-          <div class="column is-9-tablet is-9-desktop is-9-widescreen">
-            <h2 class="title has-text-centered">Edit Project</h2>
-
-            
+            <hr>
             <div class="field">
               <label class="label">Project Name</label>
               <div class="control">
@@ -41,7 +34,6 @@
                   <div class="control">
                     <%= f.number_field :actual_effort, autocomplete: 'name', placeholder: 'actual effort', class: 'input is-info' %>
                   </div>
-                  <p class="help is-success">This will only show when you mark the project as completed.</p>
                 </div>
               </div>
               
@@ -73,11 +65,12 @@
                 <%= link_to "Cancel", root_path, class: "button is-link is-light" %>
               </div>
             </div>
-          
-          </div>
+
+          <% end %>
+         
         </div>
       </div>
-    <% end %>
+    </div>
   </div>
 </section>
 

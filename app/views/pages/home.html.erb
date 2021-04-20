@@ -26,10 +26,10 @@
                     <div class="column is-7 pt-0">
                       <div class="card is-shadowless">
                         <header class="card-header is-shadowless pl-4">
-                          <span class="icon">
-                            <i class="fas fa-train"></i>
-                          </span>
-                          <p class="card-header-title p-0">Created on: <%= project.created_at.strftime('%d, %b %Y')%></p>
+                          <span class="icon"><i class="fas fa-user"></i></span>
+                          <p class="card-header-title p-0">
+                          <%= project.user.full_name %> | <span class="icon"><i class="far fa-clock"></i></span> <%= project.created_at.strftime('%d, %b %Y')%>
+                          </p>
                         </header>
                         <div class="card-content pt-3">
                           <div class="content">
