@@ -15,9 +15,13 @@
                         
                       </div>
                       <div class="right">
-                        <%= link_to project.status.humanize, 
-                                            edit_project_path(project), 
-                                            class: "button is-outlined is-small #{project_status(project.status)}" %>
+                        <div class="buttons">
+                          <%= link_to "View Comments", project_path(project), class: "button is-primary is-small" %>
+                        
+                          <%= link_to project.status.humanize, 
+                                              edit_project_path(project), 
+                                              class: "button is-outlined is-small #{project_status(project.status)}" %>
+                        </div>
                       </div>
                     </div>
                   </div>

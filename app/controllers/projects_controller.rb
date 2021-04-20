@@ -33,6 +33,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project = Project.find(params[:id])
+    @comments = Comment.where(project_id: params[:id])
   end
 
   def status_complete
