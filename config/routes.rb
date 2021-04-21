@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root 'pages#home'
+  post '/comments', to: 'comments#create'
 
   resources :projects
   
