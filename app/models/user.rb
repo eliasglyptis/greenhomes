@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable
   
   has_many :projects
+  has_many :products
 
   validates :full_name, presence: :true, length: { 
     maximum: 50,
